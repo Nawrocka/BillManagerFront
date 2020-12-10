@@ -17,7 +17,7 @@ export class BillsComponent implements OnInit {
   headElements = ['Rok', 'Nazwa', 'Styczen', 'Luty', 'Marzec', 'Kwiecien', 'Maj',
     'Czerwiec', 'Lipiec', 'Sierpien', 'Wrzesien', 'Pazdziernik', 'Listopad',
     'Grudzien', 'Edytuj'];
-  response: IResponse;
+  response= {} as IResponse;
   bill: IBill = {
     Name: '', Year: '', April: '', August: '', December: '',
     February: '', Id: 0, January: '', July: '',
@@ -25,7 +25,7 @@ export class BillsComponent implements OnInit {
     September: '', UserId: this.cookieService.get('userId')
   };
   elements: IBills = { billList: Array<IBill>() };
-  billEdit: IBill; //it's not nessesary, but more readable
+  billEdit= {} as IBill; //it's not nessesary, but more readable
 
   constructor(private billsService: BillsService,
     private toastr: ToastrService,
@@ -46,7 +46,7 @@ export class BillsComponent implements OnInit {
 
   async addNewBill() {
     this.response = await this.billsService.addBill(this.bill);
-    
+
     if (this.response.status === 'Success') {
       this.toastr.success('Dodano rachunek');
       this.selectedComponent = 'Table';

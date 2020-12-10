@@ -7,7 +7,7 @@ import { IResponse } from '../interfaces/iresponse';
 import { InformationsService } from '../services/informations.service';
 
 @Component({
-  selector: 'app-informations',
+  selector: 'app-info',
   templateUrl: './informations.component.html',
   styleUrls: ['./informations.component.css']
 })
@@ -15,10 +15,10 @@ export class InformationsComponent implements OnInit {
 
   selectedComponent = 'Table';
   elements: IInformations = {informationList: Array<IInformation>()};
-  response: IResponse;
+  response= {} as IResponse;
   information: IInformation = {Name: '', Content: '', UserId: this.cookieService.get( 'userId')  , Id: 0};
-  informationEdit: IInformation;
-  
+  informationEdit= {} as IInformation;
+
   constructor(private informationService: InformationsService,
     private toastr: ToastrService,
     private cookieService: CookieService) { }

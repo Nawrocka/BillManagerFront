@@ -19,17 +19,17 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService) { }
 
   loged = true;
-  logedInDb: IResponseAfterLogin;
-  registerInDb: IResponseAfterLogin;
+  logedInDb = {} as IResponseAfterLogin;
+  registerInDb= {} as IResponseAfterLogin;
   infoInvalidData = '';
-  user: IUser = { name: '', password: '', email: '', PhoneNumber: 0, isPaid: false };
+  user: IUser = { UserName: '', PasswordHash: '', Email: '', PhoneNumber: 0, IsPaid: false, Id: '' };
 
   ngOnInit(): void {
     this.loged = true;
   }
 
   async logIn() {
-    
+
     if (this.loged === false) {
       this.infoInvalidData = '';
       this.loged = true;

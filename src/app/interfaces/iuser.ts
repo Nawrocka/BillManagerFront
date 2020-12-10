@@ -1,7 +1,8 @@
 export interface IUser {
-    email: string;
-    password: string;
-    name: string;
     PhoneNumber: number;
-    isPaid: boolean;
+    PasswordHash: string;
+    Email: string;
+    UserName: string;
+    Id: string;
+    IsPaid: boolean;
 }

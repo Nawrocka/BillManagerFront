@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -14,21 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { BillsComponent } from './bills/bills.component';
 import { AdminComponent } from './admin/admin.component';
 import { InformationsComponent } from './informations/informations.component';
-import { Routes } from '@angular/router';
-
-const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full'},
-  {
-    path: 'login',
-    component: LoginComponent,
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: MainpageComponent,
-    pathMatch: 'full'
-  },
-];
 
 @NgModule({
   declarations: [

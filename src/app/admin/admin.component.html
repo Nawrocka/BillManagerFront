@@ -3,8 +3,8 @@
 <br>
 <br>
 <br>
-<div [ngSwitch]="selectedComponent">
-  <ng-template [ngSwitchCase]= "'Table'"> 
+<div [ngSwitch]="selectComponent">
+  <ng-template [ngSwitchCase]= "'Table'">
       <table class="table">
           <thead>
             <tr>
@@ -12,39 +12,39 @@
             </tr>
           </thead>
           <tbody>
-              <tr mdbTableCol *ngFor="let el of elements.usersList">
-                  <td>{{el.name}}</td>
-                  <td>{{el.mail}}</td>
-                  <td>{{el.telNumber}}</td>
-                  <td>{{el.isPaid}}</td>              
+              <tr mdbTableCol *ngFor="let el of elements.userList">
+                  <td>{{el.UserName}}</td>
+                  <td>{{el.Email}}</td>
+                  <td>{{el.PhoneNumber}}</td>
+                  <td>{{el.IsPaid}}</td>
                   <td><button type="button" class="btn btn-info" (click)="editUser(el)">Edytuj</button></td>
                 </tr>
           </tbody>
         </table>
   </ng-template>
-  <ng-template [ngSwitchCase]= "'Edit'"> 
+  <ng-template [ngSwitchCase]= "'Edit'">
         <div class="center-div">
-            <font size="6" face="Comic Sans MS" color="black"><p style="text-align:center">Edytuj wybranego uzytkownika</p></font>
+            <span size="6" face="Comic Sans MS" color="black"><p style="text-align:center">Edytuj wybranego uzytkownika</p></span>
             <form #empForm="ngForm">
               <div class="form-group">
                 <label for="exampleInputName">Nazwa</label>
-                <input style = "width: 30%;" type="text" name="name" [(ngModel)]="userEdit.name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="nazw">
+                <input style = "width: 30%;" type="text" name="name" [(ngModel)]="userEdit.UserName" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="nazw">
               </div>
               <div class="form-group">
                 <label for="exampleInputMail">Mail</label>
-                <input style = "width: 30%;" type="text"  name="mail" [(ngModel)]="userEdit.mail" class="form-control" id="exampleInputMail" placeholder="mail">
+                <input style = "width: 30%;" type="text"  name="mail" [(ngModel)]="userEdit.Email" class="form-control" id="exampleInputMail" placeholder="mail">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword">Haslo</label>
-                <input style = "width: 30%;" type="text" name="password" [(ngModel)]="userEdit.password" class="form-control" id="exampleInputPassword" aria-describedby="psswordHelp" placeholder="haslo">
+                <input style = "width: 30%;" type="text" name="password" [(ngModel)]="userEdit.PasswordHash" class="form-control" id="exampleInputPassword" aria-describedby="psswordHelp" placeholder="haslo">
               </div>
               <div class="form-group">
                 <label for="exampleInputtelNumber">Numer telefonu</label>
-                <input style = "width: 30%;" type="text"  name="telNumber" [(ngModel)]="userEdit.telNumber" class="form-control" id="exampleInputtelNumber" placeholder="numer telefonu">
+                <input style = "width: 30%;" type="text"  name="telNumber" [(ngModel)]="userEdit.PhoneNumber" class="form-control" id="exampleInputtelNumber" placeholder="numer telefonu">
               </div>
               <div class="form-group">
                 <label for="exampleInputisPaid">Czy zaplacono?</label>
-                <input style = "width: 30%;" type="text" name="isPaid" [(ngModel)]="userEdit.isPaid" class="form-control" id="exampleInputisPaid" aria-describedby="isPaidHelp" placeholder="zaplacono?">
+                <input style = "width: 30%;" type="text" name="isPaid" [(ngModel)]="userEdit.IsPaid" class="form-control" id="exampleInputisPaid" aria-describedby="isPaidHelp" placeholder="zaplacono?">
               </div>
             </form>
             <br>

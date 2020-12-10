@@ -14,12 +14,14 @@ export class LoginService {
 
   checkIsUser(user: IUser) {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json; charset=utf-8'
     });
-    
+
     const options = {headers: headers}
 
-    return this.http.post<IResponseAfterLogin>(this.appUrl + '/Account/Login', user, options).toPromise();
+    let cos = JSON.stringify(user);
+
+    return this.http.post<IResponseAfterLogin>(this.appUrl + '/api/register/login', cos, options).toPromise();
   }
 
   register(user: IUser){

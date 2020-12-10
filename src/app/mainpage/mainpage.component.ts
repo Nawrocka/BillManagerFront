@@ -18,13 +18,13 @@ export class MainpageComponent implements OnInit {
   constructor(private loginService: LoginService,
     public router: Router,
     private cookieService: CookieService,
-    private toastr: ToastrService) { } 
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.isAdmin = this.cookieService.get('isAdmin');
   }
 
-  componentSelect(choosedComponent){
+  componentSelect(choosedComponent: string){
     if(choosedComponent === 'Logout'){
       this.cookieService.set('userEmail', '');
       this.toastr.success('Wylogowałeś się');

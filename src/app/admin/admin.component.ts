@@ -14,9 +14,10 @@ export class AdminComponent implements OnInit {
 
   selectComponent = 'Table';
   headElements = ['Nazwa', 'Mail', 'Num. Telefonu', 'Zaplacil', 'Edytuj'];
-  response: IResponse;
-  user: IUser = { email: '', password: '', name: '', PhoneNumber: 0, isPaid: false };
+  response = {} as IResponse;
+  user: IUser = { Email: '', PasswordHash: '', UserName: '', PhoneNumber: 0, IsPaid: false, Id: '' };
   elements: IUsers = { userList: Array<IUser>() };
+  userEdit = {} as IUser;
 
   constructor(private usersService: UsersService,
     private toastr: ToastrService) { }
@@ -41,7 +42,7 @@ export class AdminComponent implements OnInit {
 
     if(this.response.status === 'Success'){
       this.toastr.success('Edytowano użytkownika');
-      this.selectComponent = 'Table';      
+      this.selectComponent = 'Table';
       this.elements = await this.usersService.getAllUsers();
     }
   }
